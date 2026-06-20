@@ -1,4 +1,412 @@
-<h1>hola esta es mi web con git :)</h1>
-<h2> agregue un emoticon </h2>
-<h2> probando el git push </h2>
-<h2> autorizacion de entrada </h2>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourtPower | Tienda de Ropa Deportiva Masculina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- VARIABLES DE DISEÑO --- */
+        :root {
+            --bg-principal: #0a0a0c;
+            --bg-tarjeta: #131316;
+            --color-neon: #39ff14; /* Verde Neón llamativo */
+            --color-electrico: #00e5ff; /* Cian Eléctrico */
+            --texto-blanco: #ffffff;
+            --texto-gris: #a0a0a5;
+            --fuente-titulos: 'Oswald', sans-serif;
+            --fuente-base: 'Inter', sans-serif;
+        }
+/* --- RESET Y ESTILOS GENERALES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-principal);
+            color: var(--texto-blanco);
+            font-family: var(--fuente-base);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- HEADER Y NAVEGACIÓN --- */
+        header {
+            background-color: rgba(19, 19, 22, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid var(--color-neon);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-family: var(--fuente-titulos);
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, var(--color-neon), var(--color-electrico));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+.nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-neon);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, rgba(0,229,255,0.1) 0%, rgba(10,10,12,1) 100%);
+        }
+
+        .hero h1 {
+            font-family: var(--fuente-titulos);
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 span {
+            color: var(--color-neon);
+        }
+
+        .hero p {
+            color: var(--texto-gris);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- CONTENEDOR DE PRODUCTOS --- */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            font-family: var(--fuente-titulos);
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--color-electrico);
+            padding-left: 1rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+/* --- TARJETA DE PRODUCTO --- */
+        .product-card {
+            background-color: var(--bg-tarjeta);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #222;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-neon);
+        }
+
+        /* Marcador de posición para la imagen (simulación con CSS llamativo) */
+        .product-image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #1f1f24 0%, #2d2d35 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+.product-image-placeholder::after {
+            content: 'CP';
+            font-family: var(--fuente-titulos);
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.05);
+            font-weight: 700;
+        }
+
+        /* Icono visual del tipo de prenda dentro del recuadro */
+        .product-icon {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+.product-category {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--color-electrico);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-name {
+            font-family: var(--fuente-titulos);
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .product-description {
+            color: var(--texto-gris);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .product-price {
+            font-family: var(--fuente-titulos);
+            font-size: 1.8rem;
+            color: var(--color-neon);
+            font-weight: 700;
+        }
+
+        .buy-btn {
+            background: transparent;
+            border: 2px solid var(--color-electrico);
+            color: var(--color-electrico);
+            padding: 0.5rem 1rem;
+            font-family: var(--fuente-titulos);
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+.buy-btn:hover {
+            background-color: var(--color-electrico);
+            color: var(--bg-principal);
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--bg-tarjeta);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid #222;
+            color: var(--texto-gris);
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE / MEDIA QUERIES --- */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+        <div class="nav-container">
+            <a href="#" class="logo">CourtPower</a>
+            <ul class="nav-links">
+                <li><a href="#productos">Catálogo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Potencia tu <span>Rendimiento</span></h1>
+        <p>Equipamiento de alta intensidad para el atleta moderno. Diseños explosivos a precios imbatibles.</p>
+    </section>
+
+    <main class="main-container" id="productos">
+        <h2 class="section-title">Colección de Temporada</h2>
+        
+        <div class="products-grid">
+            
+            <div class="product-card">
+                <div class="product-image-placeholder">
+                    <span class="product-icon">🩳</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Shorts</span>
+                    <h3 class="product-name">Volt Short Pro</h3>
+                    <p class="product-description">Short transpirable con tecnología de secado rápido y mallas internas de compresión.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$5.99</span>
+                        <button class="buy-btn">Añadir</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-placeholder">
+                    <span class="product-icon">👕</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Franelas</span>
+                    <h3 class="product-name">Cyber Dry Tee</h3>
+                    <p class="product-description">Camiseta ultra ligera con costuras planas anti-roce. Ideal para entrenamientos pesados.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$7.50</span>
+                        <button class="buy-btn">Añadir</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-placeholder">
+                    <span class="product-icon">🧥</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Sudaderas</span>
+                    <h3 class="product-name">Neon Neon Hoodie</h3>
+                    <p class="product-description">Sudadera con capucha de algodón premium y bolsillos con cremalleras termoselladas.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$9.99</span>
+                        <button class="buy-btn">Añadir</button>
+                    </div>
+                </div>
+            </div>
+<div class="product-card">
+                <div class="product-image-placeholder">
+                    <span class="product-icon">🧢</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Gorras</span>
+                    <h3 class="product-name">Apex Cap</h3>
+                    <p class="product-description">Gorra de visera curva con paneles de ventilación láser y cierre trasero ajustable.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$3.99</span>
+                        <button class="buy-btn">Añadir</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-placeholder">
+                    <span class="product-icon">🩳</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Shorts</span>
+                    <h3 class="product-name">Alpha Split Short</h3>
+                    <p class="product-description">Diseñado para corredores. Apertura lateral máxima para total libertad de movimiento.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$4.50</span>
+                        <button class="buy-btn">Añadir</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-placeholder">
+                    <span class="product-icon">👕</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Franelas</span>
+                    <h3 class="product-name">Stealth Tank Top</h3>
+                    <p class="product-description">Franela sin mangas con corte olímpico que resalta la espalda y los hombros.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$6.00</span>
+                        <button class="buy-btn">Añadir</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-placeholder">
+                    <span class="product-icon">🧥</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Sudaderas</span>
+                    <h3 class="product-name">Interstellar Crew</h3>
+                    <p class="product-description">Sudadera de cuello redondo con ajuste atlético y gráficos reflectantes oscuros.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$8.99</span>
+                        <button class="buy-btn">Añadir</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-placeholder">
+                    <span class="product-icon">🧢</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Gorras</span>
+                    <h3 class="product-name">Viper Visor</h3>
+                    <p class="product-description">Visera deportiva elástica y absorbente de sudor para tenis, running o pádel.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$1.99</span>
+                        <button class="buy-btn">Añadir</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer id="contacto">
+        <p>&copy; 2026 CourtPower S.A. Todos los derechos reservados.</p>
+        <p style="font-size: 0.75rem; margin-top: 0.5rem; color: var(--color-electrico)">Estilo, Fuerza y Rendimiento.</p>
+    </footer>
+
+</body>
+</html>
